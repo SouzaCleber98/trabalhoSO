@@ -51,7 +51,7 @@ public class Main {
             scanner.nextLine(); // Consumir a nova linha após nextInt
 
             // Lê o tempo de chegada
-            while (tempoChegada < 0) { // Tempo de chegada pode ser 0, mas não negativo
+            do {
                 System.out.print("Digite o tempo de chegada: ");
                 try {
                     tempoChegada = scanner.nextInt();
@@ -62,7 +62,8 @@ public class Main {
                     System.out.println("Por favor, insira um número válido.");
                     scanner.nextLine(); // Limpa o buffer
                 }
-            }
+            } while (tempoChegada < 0);
+            
             scanner.nextLine(); // Consumir a nova linha após nextInt
 
             Processo processo = new Processo(nome, tempoExe, tempoChegada);
